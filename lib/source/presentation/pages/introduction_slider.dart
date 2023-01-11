@@ -22,6 +22,8 @@ class IntroductionSlider extends StatefulWidget {
   /// The [Done] that is used to navigate to the target page.
   final Done done;
 
+  final bool showDots;
+
   /// The [DotIndicator] that is used to indicate dots.
   final DotIndicator? dotIndicator;
 
@@ -44,6 +46,7 @@ class IntroductionSlider extends StatefulWidget {
     this.back,
     required this.done,
     this.next,
+    this.showDots = true,
     this.dotIndicator,
   })  : assert((initialPage <= items.length - 1) && (initialPage >= 0),
             "initialPage can't be less than 0 or greater than items length."),
