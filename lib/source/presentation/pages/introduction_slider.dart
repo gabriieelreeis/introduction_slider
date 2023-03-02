@@ -37,6 +37,8 @@ class IntroductionSlider extends StatefulWidget {
 
   final Widget? customLastItemButton;
 
+  final dynamic? topBackButton;
+
   /// The initial page index of the introduction slider.
   int initialPage;
 
@@ -54,6 +56,7 @@ class IntroductionSlider extends StatefulWidget {
     this.dotIndicator,
     this.customFullNextButton,
     this.customLastItemButton,
+    this.topBackButton,
   })  : assert((initialPage <= items.length - 1) && (initialPage >= 0),
             "initialPage can't be less than 0 or greater than items length."),
         super(key: key);
@@ -105,6 +108,12 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
       body: Stack(
         alignment: AlignmentDirectional.center,
         children: [
+          if (widget.topBackButton != null)
+            Positioned(
+              top: 80,
+              left: 35,
+              child: widget.topBackButton,
+            ),
           PageView.builder(
             controller: pageController,
             itemCount: widget.items.length,
